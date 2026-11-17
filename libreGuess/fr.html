@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ec">
+  <title>libreGuess · Le jeu de devinettes entre amis</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="top"><a class="brand" href="fr.html"><span class="logo">✦</span> libre<span>Guess</span></a><a class="language" href="index.html" lang="en" hreflang="en">English</a></header>
+  <main>
+    <section id="setup" class="setup">
+      <div class="intro">
+        <div class="eyebrow">À VOUS DE JOUER</div>
+        <h1>Un indice.<br><em>À toi de deviner !</em></h1>
+        <p>Une personne devine, les autres donnent des indices. Combien de mots trouverez-vous avant la fin du chrono ?</p>
+        <div class="art" aria-hidden="true"><div class="paper back"></div><div class="paper front"><b>?</b><span>✦</span></div><span class="spark">✧</span></div>
+      </div>
+      <div class="settings">
+        <h2>Choisissez une catégorie</h2>
+        <div id="decks" class="decks" role="group" aria-label="Catégorie"></div>
+        <fieldset><legend>Durée de la manche</legend>
+          <div class="times">
+            <label><input type="radio" name="duration" value="30"><span>30 s</span></label>
+            <label><input type="radio" name="duration" value="60" checked><span>60 s</span></label>
+            <label><input type="radio" name="duration" value="90"><span>90 s</span></label>
+          </div>
+        </fieldset>
+        <button class="primary" id="start">Commencer <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+    <section id="ready" class="stage" hidden>
+      <div class="eyebrow">PRÉPAREZ-VOUS</div>
+      <h2 tabindex="-1">Téléphone au front !</h2>
+      <p>Tenez l’écran contre votre front, face à vos amis. Ils peuvent décrire ou mimer le mot sans le prononcer.</p>
+      <p>Touchez <strong>Trouvé</strong> ou <strong>Passer</strong>, ou utilisez les flèches droite et gauche. Si votre téléphone le permet, activez les gestes et tenez-le à la verticale.</p>
+      <div class="actions"><button id="back">Retour</button><button id="tilt" aria-pressed="false">Activer les gestes</button><button id="go" class="primary">C’est parti !</button></div>
+      <p id="tilt-status" role="status"></p>
+    </section>
+    <section id="round" class="stage" hidden>
+      <div class="round-top"><span id="deck-name"></span><time id="timer"></time><span id="score"></span></div>
+      <div class="prompt"><h2 id="word" tabindex="-1" aria-live="polite"></h2></div>
+      <div class="actions"><button id="pass">← Passer</button><button id="correct" class="primary">Trouvé →</button></div>
+      <button id="end" class="text-button">Terminer la manche</button>
+    </section>
+    <section id="results" class="stage" hidden>
+      <div class="eyebrow">MANCHE TERMINÉE</div>
+      <h2 tabindex="-1" id="total"></h2>
+      <p id="summary"></p>
+      <ul id="history"></ul>
+      <div class="actions"><button id="home">Changer de catégorie</button><button id="again" class="primary">Rejouer →</button></div>
+    </section>
+  </main>
+</body>
+</html>
